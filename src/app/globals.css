@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #0B0B0F;
+    --card-bg: #13131A;
+    --card-border: #242432;
+    --text-primary: #F5F5F0;
+    --text-secondary: #9E9EA8;
+    --accent-lime: #C6FF3D;
+    --accent-pink: #FF4D8D;
+    --accent-lavender: #B8A1FF;
+  }
+
+  html.light {
+    --bg-main: #F4F4EE;
+    --card-bg: #FFFFFF;
+    --card-border: #D4D4D0;
+    --text-primary: #0F0F14;
+    --text-secondary: #5C5C68;
+    --accent-lime: #16A34A; /* high-contrast green for light mode accents */
+    --accent-pink: #E11D48;
+    --accent-lavender: #7C3AED;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-heading), system-ui, sans-serif;
+  }
+}
+
+/* Neo-brutalist utility shadows and borders */
+.neo-border {
+  border: 2px solid #242432;
+}
+
+html.light .neo-border {
+  border: 2px solid #0F0F14;
+}
+
+.neo-shadow-lime {
+  box-shadow: 4px 4px 0px 0px #C6FF3D;
+}
+
+.neo-shadow-pink {
+  box-shadow: 4px 4px 0px 0px #FF4D8D;
+}
+
+.neo-shadow-lavender {
+  box-shadow: 4px 4px 0px 0px #B8A1FF;
+}
+
+.neo-shadow-dark {
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.neo-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+}
+
+/* Subtle noise background grain */
+.grain-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+html.light .grain-overlay {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 0);
+}
+
+/* Marquee infinite scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0F;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #F4F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #242432;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6FF3D;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+}
