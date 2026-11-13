@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Kashish — Personal Portfolio Website
 
 > **"I turn real-world problems into full-stack products."**  
@@ -133,3 +134,7 @@ To add a new hackathon, open `src/data/content.ts` and add an entry to the `cont
 ---
 
 Crafted for **Kashish (CS '28)** with clean engineering and Gen Z energy.
+=======
+# portfolio
+My personal portfolio website showcasing my skills, projects, experience, and achievements in software development. Built to highlight my technical expertise, creativity, and passion for building innovative digital solutions using modern web technologies.
+>>>>>>> 25cbac8e0544418a75fc120ed9d999b8517e10fd
